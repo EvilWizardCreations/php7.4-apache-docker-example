@@ -94,6 +94,6 @@ sudo docker-compose up --build -d
 sudo docker exec -it php-7-4-web-server /bin/bash
 ```
 
-[^docker_pull_cmd_note]: Use `docker pull ewc2020/web:php-5.6-apache` to get a copy of the image.
+[^docker_pull_cmd_note]: Use `docker pull ewc2020/web:php-7.4-apache` to get a copy of the image.
 
 [^compose_name_note]: The `php-7-4-web-server` container name to build the image for.
