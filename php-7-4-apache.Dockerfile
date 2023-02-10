@@ -5,7 +5,7 @@ LABEL evilwizardcreations.image.authors="evil.wizard95@googlemail.com" \
     evilwizardcreations.image.php.version="7.4"
 
 # copy the specific Composer PHAR version from the Composer image into the PHP image
-COPY --from=composer:1.9.3 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:1.10.1 /usr/bin/composer /usr/bin/composer
 
 # Download the nodejs setup & set that it's a docker env.
 ENV NODE_ENV docker
@@ -29,7 +29,7 @@ RUN set -ex; \
       default-mysql-client \ 
       vim; \
     apt-get clean; \
-    npm i npm@latest -g
+    npm i npm@6.4.1 -g
 
 # Install some php extensions from the docker built source.
 RUN docker-php-ext-install gettext mysqli pdo_mysql zip

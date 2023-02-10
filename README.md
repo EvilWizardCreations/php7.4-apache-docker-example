@@ -7,7 +7,7 @@ An old version of ***PHP*** that some codebase sites still require to emulate a 
 Other Packages Included:
 
 - Node
-- Composer
+- Composer v1.10.1
 - libxml2-dev
 - libzip-dev
 - libyaml-dev
@@ -16,7 +16,7 @@ Other Packages Included:
 - nodejs
 - default-mysql-client
 - vim
-- npm i npm@latest -g
+- npm i npm@6.4.1 -g
 - yaml
 
 PHP Extensions:
