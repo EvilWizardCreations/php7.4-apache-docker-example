@@ -1,6 +1,8 @@
 version: '3.7'
 
+# Services/Containers to orchestrate in this composition
 services:
+  # Basic PHP 7.4 & Apache2 Image Container
   php-7-4-web-server:
     container_name: php-7-4-web-server
     tty: true
@@ -31,6 +33,8 @@ services:
     networks:
       - webapp_network
 
+# Custom network for composed containers to communicate on
 networks:
   webapp_network:
+    driver: bridge
 
