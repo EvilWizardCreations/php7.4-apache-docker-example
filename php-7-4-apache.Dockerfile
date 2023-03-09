@@ -4,11 +4,15 @@ FROM php:7.4-apache as php-7-4-build
 LABEL evilwizardcreations.image.authors="evil.wizard95@googlemail.com" \
     evilwizardcreations.image.php.version="7.4"
 
+ARG NPM_VERSION=7.24.2
+ENV NPM_VERSION=$NPM_VERSION
+
 # copy the specific Composer PHAR version from the Composer image into the PHP image
 COPY --from=composer:1.10.1 /usr/bin/composer /usr/bin/composer
 
 # Download the nodejs setup & set that it's a docker env.
 ENV NODE_ENV docker
+# Node -v v14
 RUN curl --silent --location https://deb.nodesource.com/setup_14.x | bash
 
 # Enable some apache modules.
@@ -24,12 +28,13 @@ RUN set -ex; \
       libzip-dev \
       libyaml-dev \
       zip \
+      unzip \
       git \
       nodejs  \
       default-mysql-client \ 
       vim; \
     apt-get clean; \
-    npm i npm@6.4.1 -g
+    npm i npm@$NPM_VERSION -g
 
 # Install some php extensions from the docker built source.
 RUN docker-php-ext-install gettext mysqli pdo_mysql zip
